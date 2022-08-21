@@ -11,6 +11,9 @@
 ## What more can be done? 
 
 1-) More unit tests can be added for each level.
+
 2-) More manuel test could be run. 
+
 3-) Hard coded strings can be moved a static constants class.
+
 4-) Some load tests could be run. 
