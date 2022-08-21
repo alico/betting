@@ -1,8 +1,8 @@
 ﻿using Betting.Domain.Enums;
-using MediatR;
 
-namespace Betting.Application.Betting.Commands;
-public class PlaceBetCommand : IRequest<Guid>
+namespace Betting.Application.Betting;
+
+public class BettingListItemDto
 {
     public Guid UserId { get; set; }
     public Guid FixtureId { get; set; }

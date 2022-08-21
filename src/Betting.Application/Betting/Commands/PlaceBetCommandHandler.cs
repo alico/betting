@@ -3,7 +3,7 @@ using Betting.Domain.Contracts;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Betting.Application.Bet.Commands;
+namespace Betting.Application.Betting.Commands;
 public class PlaceBetCommandHandler : IRequestHandler<PlaceBetCommand, Guid>
 {
     private readonly ICommandDBContext _context;
@@ -32,7 +32,9 @@ public class PlaceBetCommandHandler : IRequestHandler<PlaceBetCommand, Guid>
             FixtureId = request.FixtureId,
             MarketId = request.MarketId,
             SelectionId = request.SelectionId,
-            Amount = request.Amount
+            Amount = request.Amount,
+            MarketTypeId = (short)request.MarketType,
+            BetSettlementId = (short)Domain.Enums.BetSettlement.Active,
         };
 
         _context.Bets.Add(bet);

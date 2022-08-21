@@ -38,6 +38,7 @@ public abstract class BaseDbContext : DbContext, IDbContext
         modelBuilder.Entity<Fixture>().HasOne(x => x.Competition);
         modelBuilder.Entity<Fixture>().HasMany(x => x.FixtureMarkets);
         modelBuilder.Entity<Fixture>().HasMany(x => x.Teams);
+        modelBuilder.Entity<Fixture>().HasOne(x => x.FixtureStatus);
         modelBuilder.Entity<FixtureMarket>().HasOne(x => x.MarketType);
         modelBuilder.Entity<FixtureTeam>().HasOne(x => x.Fixture);
         modelBuilder.Entity<FixtureTeam>().HasOne(x => x.Team);
@@ -45,10 +46,9 @@ public abstract class BaseDbContext : DbContext, IDbContext
         modelBuilder.Entity<MatchPriceSelection>().HasOne(x => x.MatchPriceSelectionType);
         modelBuilder.Entity<MatchPriceMarket>().HasOne(x => x.FixtureMarket);
         modelBuilder.Entity<MatchPriceMarket>().HasMany(x => x.MatchPriceSelections);
-
         modelBuilder.Entity<Bet>().HasOne(x => x.User);
         modelBuilder.Entity<Bet>().HasOne(x => x.Fixture);
-
+        modelBuilder.Entity<Bet>().HasOne(x => x.BetSettlement);
         modelBuilder.Entity<User>().HasMany(x => x.Bets);
 
         modelBuilder.Seed();
@@ -63,6 +63,7 @@ public abstract class BaseDbContext : DbContext, IDbContext
     public DbSet<Sport> Sports { get; set; }
     public DbSet<Competition> Competitions { get; set; }
     public DbSet<Fixture> Fixtures { get; set; }
+    public DbSet<FixtureStatus> FixtureStatuses { get; set; }
     public DbSet<FixtureMarket> FixtureMarkets { get; set; }
     public DbSet<FixtureTeam> FixtureTeams { get; set; }
     public DbSet<MarketType> MarketTypes { get; set; }
@@ -72,4 +73,6 @@ public abstract class BaseDbContext : DbContext, IDbContext
     public DbSet<Team> Teams { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<Bet> Bets { get; set; }
+    public DbSet<BetSettlement> BetSettlements { get; set; }
+
 }

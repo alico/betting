@@ -1,4 +1,6 @@
-using Betting.Application.Bet.Commands;
+using Betting.Application.Betting;
+using Betting.Application.Betting.Commands;
+using Betting.Application.Betting.Queries;
 using Betting.Application.Common.Exceptions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +13,27 @@ namespace Betting.API.Controllers
         {
 
         }
+
+        /// <summary>
+        /// Lists a user's bets
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorResponseWrapper<ErrorResponse>), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(IEnumerable<BettingListItemDto>), StatusCodes.Status200OK)]
+        [ResponseCache(VaryByQueryKeys = new[] { "*" }, Duration = 60)]
+        public async Task<ActionResult<IEnumerable<BettingListItemDto>>> Get(CancellationToken cancellationToken, [FromQuery] ListBettingsQuery request)
+        {
+            var response = await _mediator.Send(request, cancellationToken);
+
+            if (!response.Any())
+                return NotFound();
+
+            return Ok(response);
+        }
+
 
         /// <summary>
         /// Places a bet

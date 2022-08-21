@@ -25,19 +25,23 @@ public class ListFixturesQueryHandler : IRequestHandler<ListFixturesQuery, IEnum
         var fixtures = await _fixtureProvider.GetFixtures(expression, request.PageNumber, request.ItemCount, cancellationToken);
 
         //Get Fixture Markets to be queried from the database
-        var fixtureMarkets = fixtures.Select(y => new FixtureMarketAggregate
+        var markets = fixtures.Select(y => new FixtureMarketAggregate
         {
             FixtureId = y.Id,
             Markets = y.FixtureMarkets.ToList(),
         }).ToList();
 
         //Get Markets with selections
-        var marketsWithSelections = await _fixtureMarketService.GetFixtureMarkets(fixtureMarkets, cancellationToken);
+        var marketsWithSelections = await _fixtureMarketService.GetFixtureMarkets(markets, cancellationToken);
 
         return fixtures.Select(x => new FixtureListItemDto()
         {
             FixtureId = x.Id,
             Name = x.Name,
+            ClosingDate = x.ClosingDate,
+            Date = x.Date,
+            FixtureStatus = (Domain.Enums.FixtureStatus)x.FixtureStatusId,
+            FixtureStatusDescription = x.FixtureStatus.Name,
             Markets = marketsWithSelections.Where(m => m.Key == x.Id).Select(x => x.Value).First(),
             Teams = x.Teams.Select(y => new FixtureTeamListItemDto()
             {

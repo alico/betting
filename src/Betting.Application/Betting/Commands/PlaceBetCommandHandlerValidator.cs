@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Betting.Application.Bet.Commands;
+namespace Betting.Application.Betting.Commands;
 
 public class PlaceBetCommandHandlerValidator : AbstractValidator<PlaceBetCommand>
 {

@@ -16,16 +16,18 @@ namespace Betting.Infrastructure
             services.AddSingleton<IConfigurationManager, AppSettingsConfigurationManager>();
 
             services.AddDbContext<CommandDbContext>(options => options.UseSqlServer(new AppSettingsConfigurationManager(configuration).DBConnectionString), ServiceLifetime.Transient);
-
             services.AddDbContext<QueryDbContext>(options => options.UseSqlServer(new AppSettingsConfigurationManager(configuration).DBConnectionString), ServiceLifetime.Transient);
 
             services.AddTransient<ICommandDBContext, CommandDbContext>();
             services.AddTransient<IQueryDBContext, QueryDbContext>();
+
             services.AddTransient<IProvideFixture, FixtureProvider>();
             services.AddTransient<IProvideMatchPriceMarket, MatchPriceMarketProvider>();
+            services.AddTransient<IProvideUserBetting, UserBettingProvider>();
 
             var serviceProvider = services.BuildServiceProvider();
             var commandContext = serviceProvider.GetService<ICommandDBContext>();
+
             commandContext.EnsureDbCreated();
 
             return services;

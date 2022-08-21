@@ -139,12 +139,18 @@ public static class ModelBuilderExtensions
             Id = new Guid("fa97fa89-af1a-4421-a784-50f68f9284d4"),
             Name = "Arsenal vs Chelsea",
             CompetitionId = new Guid("cb44773a-8596-4d2c-b4c2-e7894d3f6427"),
+            ClosingDate = DateTime.Now.AddDays(10),
+            Date = DateTime.Now.AddDays(9),
+            FixtureStatusId = (short)Domain.Enums.FixtureStatus.Active
         },
         new()
         {
             Id = new Guid("48550a4c-adde-452f-998c-fab62fd67680"),
             Name = "Spurs vs Wolves",
             CompetitionId = new Guid("cb44773a-8596-4d2c-b4c2-e7894d3f6427"),
+            ClosingDate = DateTime.Now.AddDays(10),
+            Date = DateTime.Now.AddDays(9),
+            FixtureStatusId = (short)Domain.Enums.FixtureStatus.Active
         },
 
         //Europa League Fixtures
@@ -153,12 +159,18 @@ public static class ModelBuilderExtensions
             Id = new Guid("47cee80f-c70a-42a9-86cd-1485e322e386"),
             Name = "Barcelona vs Bayern Munich",
             CompetitionId = new Guid("d4a3731b-128b-43b7-8265-313f5d54e9ee"),
+            ClosingDate = DateTime.Now.AddDays(10),
+            Date = DateTime.Now.AddDays(9),
+            FixtureStatusId = (short)Domain.Enums.FixtureStatus.Active
         },
         new()
         {
             Id = new Guid("8ec1d526-bdc2-44c6-9bed-98bca9c69ddb"),
             Name = "Man United vs Monaco",
             CompetitionId = new Guid("d4a3731b-128b-43b7-8265-313f5d54e9ee"),
+            ClosingDate = DateTime.Now.AddDays(10),
+            Date = DateTime.Now.AddDays(9),
+            FixtureStatusId = (short)Domain.Enums.FixtureStatus.Active
         },
 
         //NBA Fixtures
@@ -167,12 +179,18 @@ public static class ModelBuilderExtensions
             Id = new Guid("99442eb7-d26e-455d-b461-4fdca23bf4ed"),
             Name = "Chicago Bulls vs Miami Heat",
             CompetitionId = new Guid("d287dd53-5258-4dc0-a0d7-b58f486c914c"),
+            ClosingDate = DateTime.Now.AddDays(10),
+            Date = DateTime.Now.AddDays(9),
+            FixtureStatusId = (short)Domain.Enums.FixtureStatus.Active
         },
         new()
         {
             Id = new Guid("ec84784b-4de2-4b5b-b37d-c09b6676db3f"),
             Name = "Los Angeles Lakers vs Brooklyn Nets",
             CompetitionId = new Guid("d287dd53-5258-4dc0-a0d7-b58f486c914c"),
+            ClosingDate = DateTime.Now.AddDays(10),
+            Date = DateTime.Now.AddDays(9),
+            FixtureStatusId = (short)Domain.Enums.FixtureStatus.Active
         }
     };
     private static List<MarketType> _marketTypes = new()
@@ -629,6 +647,48 @@ public static class ModelBuilderExtensions
             Odds = 3.90
         },
     };
+    private static List<FixtureStatus> _fixtureStatuses = new()
+    {
+        new()
+        {
+            Id = (short)Domain.Enums.FixtureStatus.Active,
+            Name = "Active"
+        },
+        new()
+        {
+            Id = (short)Domain.Enums.FixtureStatus.Finished,
+            Name = "Finished"
+        },
+        new()
+        {
+            Id = (short)Domain.Enums.FixtureStatus.Cancelled,
+            Name = "Cancelled"
+        }
+    };
+    private static List<BetSettlement> _betStatuses= new()
+    {
+        new()
+        {
+            Id = (short)Domain.Enums.BetSettlement.Active,
+            Name = "Active"
+        },
+        new()
+        {
+            Id = (short)Domain.Enums.BetSettlement.Won,
+            Name = "Won"
+        },
+        new()
+        {
+            Id = (short)Domain.Enums.BetSettlement.Lost,
+            Name = "Lost"
+        },
+        new()
+        {
+            Id = (short)Domain.Enums.BetSettlement.Void,
+            Name = "Lost"
+        }
+    };
+
     public static void Seed(this ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Sport>().HasData(_sports);
@@ -639,9 +699,10 @@ public static class ModelBuilderExtensions
         modelBuilder.Entity<User>().HasData(_users);
         modelBuilder.Entity<FixtureMarket>().HasData(_fixtureMarkets);
         modelBuilder.Entity<FixtureTeam>().HasData(_fixtureTeams);
-
         modelBuilder.Entity<MatchPriceMarket>().HasData(_matchPriceMarkets);
         modelBuilder.Entity<MatchPriceSelectionType>().HasData(_matchPriceOddTypes);
         modelBuilder.Entity<MatchPriceSelection>().HasData(_matchPriceOdds);
+        modelBuilder.Entity<FixtureStatus>().HasData(_fixtureStatuses);
+        modelBuilder.Entity<BetSettlement>().HasData(_betStatuses);
     }
 }
