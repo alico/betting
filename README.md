@@ -17,3 +17,5 @@
 3-) Hard coded strings can be moved a static constants class.
 
 4-) Some load tests could be run. 
+
+5-) FixtureHistories table could be created for storing historical data after any changes.
