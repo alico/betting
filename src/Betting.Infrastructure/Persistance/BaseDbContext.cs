@@ -44,11 +44,11 @@ public abstract class BaseDbContext : DbContext, IDbContext
         modelBuilder.Entity<FixtureTeam>().HasOne(x => x.Team);
         modelBuilder.Entity<MatchPriceSelection>().HasOne(x => x.Market);
         modelBuilder.Entity<MatchPriceSelection>().HasOne(x => x.MatchPriceSelectionType);
+        modelBuilder.Entity<MatchPriceSelection>().HasOne(x => x.Settlement);
         modelBuilder.Entity<MatchPriceMarket>().HasOne(x => x.FixtureMarket);
         modelBuilder.Entity<MatchPriceMarket>().HasMany(x => x.MatchPriceSelections);
         modelBuilder.Entity<Bet>().HasOne(x => x.User);
         modelBuilder.Entity<Bet>().HasOne(x => x.Fixture);
-        modelBuilder.Entity<Bet>().HasOne(x => x.BetSettlement);
         modelBuilder.Entity<User>().HasMany(x => x.Bets);
 
         modelBuilder.Seed();
@@ -73,6 +73,6 @@ public abstract class BaseDbContext : DbContext, IDbContext
     public DbSet<Team> Teams { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<Bet> Bets { get; set; }
-    public DbSet<BetSettlement> BetSettlements { get; set; }
+    public DbSet<Settlement> BetSettlements { get; set; }
 
 }

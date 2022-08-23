@@ -23,7 +23,7 @@ namespace Betting.API.Controllers
         [ProducesResponseType(typeof(ErrorResponseWrapper<ErrorResponse>), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(IEnumerable<FixtureListItemDto>), StatusCodes.Status200OK)]
         [ResponseCache(VaryByQueryKeys = new[] { "*" }, Duration = 60)]
-        public async Task<ActionResult<IEnumerable<FixtureListItemDto>>> Get(CancellationToken cancellationToken, [FromQuery] ListFixturesQuery request)
+        public async Task<ActionResult<IEnumerable<FixtureListItemDto>>> Get([FromQuery] ListFixturesQuery request, CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(request, cancellationToken);
 
@@ -33,20 +33,22 @@ namespace Betting.API.Controllers
             return Ok(response);
         }
 
+
         /// <summary>
-        /// Creates a fixture
+        /// Resolves a fixture
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        [HttpPost]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Route("resolve")] 
+        [HttpGet]
         [ProducesResponseType(typeof(ErrorResponseWrapper<ErrorResponse>), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult> Post(AddFixtureCommand request, CancellationToken cancellationToken)
+        public async Task<ActionResult> Resolve([FromQuery] ResolveFixtureCommand request , CancellationToken cancellationToken)
         {
             await _mediator.Send(request, cancellationToken);
             return Ok();
         }
+
 
     }
 }

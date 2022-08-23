@@ -29,7 +29,7 @@ public class FixtureControllerTests
         mediatrMock.Setup(x => x.Send(request, It.IsAny<CancellationToken>())).ReturnsAsync(fixtures);
 
         //Act
-        var response = await sut.Get(It.IsAny<CancellationToken>(), request);
+        var response = await sut.Get(request, It.IsAny<CancellationToken>());
 
         //Assert
         response.Should().NotBeNull();
@@ -54,7 +54,7 @@ public class FixtureControllerTests
         mediatrMock.Setup(x => x.Send(request, It.IsAny<CancellationToken>())).ReturnsAsync(new List<FixtureListItemDto>());
 
         //Act
-        var response = await sut.Get(It.IsAny<CancellationToken>(), request);
+        var response = await sut.Get(request, It.IsAny<CancellationToken>());
 
         //Assert
         response.Should().NotBeNull();

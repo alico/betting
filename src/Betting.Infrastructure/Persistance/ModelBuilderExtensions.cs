@@ -18,77 +18,6 @@ public static class ModelBuilderExtensions
             Name = "NBA"
 
         },
-        //new()
-        //{
-        //    Id = new Guid("525ea61d-7c95-4288-85cc-1abbd8b30311"),
-        //    Title = "The Matrix",
-        //    YearOfRelease = 1999,
-        //    RunningTime = 180
-
-        //},
-        //new()
-        //{
-        //    Id = new Guid("d248385a-adc8-433b-9b64-36c577410890"),
-        //    Title = "The Lord of the Rings: The Two Towers",
-        //    YearOfRelease = 2002,
-        //    RunningTime = 240
-
-        //},
-        //new()
-        //{
-        //    Id = new Guid("dd943f1d-b52e-480b-ad8c-f83027977db6"),
-        //    Title = "Harry Potter and the Sorcerer's Stone",
-        //    YearOfRelease = 2001,
-        //    RunningTime = 177
-
-        //},
-        //new()
-        //{
-        //    Id = new Guid("6a2de667-93b6-496f-8660-a68ae1bb0614"),
-        //    Title = "Fight Club",
-        //    YearOfRelease = 1999,
-        //    RunningTime = 154
-
-        //},
-        //new()
-        //{
-        //    Id = new Guid("a5ebe0d1-d25f-4cf8-952d-b11289897814"),
-        //    Title = "The Sixth Sense",
-        //    YearOfRelease = 1999,
-        //    RunningTime = 130
-
-        //},
-        //new()
-        //{
-        //    Id = new Guid("cdd3857f-5dd4-4d56-808b-122d20ceffd1"),
-        //    Title = "City of Angels",
-        //    YearOfRelease = 1999,
-        //    RunningTime = 125
-
-        //},
-        //new()
-        //{
-        //    Id = new Guid("0cccdcff-9698-4f3b-8620-c93760f1bf72"),
-        //    Title = "Se7en",
-        //    YearOfRelease = 1995,
-        //    RunningTime = 140
-
-        //},
-        //new()
-        //{
-        //    Id = new Guid("ad781eb5-d144-4155-af5c-740ab066404b"),
-        //    Title = "The Usual Suspects",
-        //    YearOfRelease = 1995,
-        //    RunningTime = 194
-
-        //},
-        //new()
-        //{
-        //    Id = new Guid("69c4d9df-db64-4831-950e-da92dc7501cf"),
-        //    Title = "The Silence of the Lambs",
-        //    YearOfRelease = 1991,
-        //    RunningTime = 115
-        //}
     };
     private static List<Competition> _competitions = new()
     {
@@ -110,26 +39,6 @@ public static class ModelBuilderExtensions
             SportId = new Guid("7d72a734-079a-4d46-9a2f-52be2f029947"),
             Name = "NBA"
         },
-        //new()
-        //{
-        //    Id = new Guid("fa97fa89-af1a-4421-a784-50f68f9284d4"),
-        //    Name = "Adventure"
-        //},
-        //new()
-        //{
-        //    Id = new Guid("48550a4c-adde-452f-998c-fab62fd67680"),
-        //    Name = "Science Fiction"
-        //},
-        //new()
-        //{
-        //    Id = new Guid("47cee80f-c70a-42a9-86cd-1485e322e386"),
-        //    Name = "Fantasy"
-        //},
-        //new()
-        //{
-        //    Id = new Guid("8ec1d526-bdc2-44c6-9bed-98bca9c69ddb"),
-        //    Name = "Psychological thriller"
-        //}
     };
     private static List<Fixture> _fixtures = new()
     {
@@ -139,8 +48,8 @@ public static class ModelBuilderExtensions
             Id = new Guid("fa97fa89-af1a-4421-a784-50f68f9284d4"),
             Name = "Arsenal vs Chelsea",
             CompetitionId = new Guid("cb44773a-8596-4d2c-b4c2-e7894d3f6427"),
-            ClosingDate = DateTime.Now.AddDays(10),
-            Date = DateTime.Now.AddDays(9),
+            ClosingDate = DateTime.UtcNow.AddDays(10),
+            Date = DateTime.UtcNow.AddDays(9),
             FixtureStatusId = (short)Domain.Enums.FixtureStatus.Active
         },
         new()
@@ -148,8 +57,8 @@ public static class ModelBuilderExtensions
             Id = new Guid("48550a4c-adde-452f-998c-fab62fd67680"),
             Name = "Spurs vs Wolves",
             CompetitionId = new Guid("cb44773a-8596-4d2c-b4c2-e7894d3f6427"),
-            ClosingDate = DateTime.Now.AddDays(10),
-            Date = DateTime.Now.AddDays(9),
+            ClosingDate = DateTime.UtcNow.AddDays(10),
+            Date = DateTime.UtcNow.AddDays(9),
             FixtureStatusId = (short)Domain.Enums.FixtureStatus.Active
         },
 
@@ -159,8 +68,8 @@ public static class ModelBuilderExtensions
             Id = new Guid("47cee80f-c70a-42a9-86cd-1485e322e386"),
             Name = "Barcelona vs Bayern Munich",
             CompetitionId = new Guid("d4a3731b-128b-43b7-8265-313f5d54e9ee"),
-            ClosingDate = DateTime.Now.AddDays(10),
-            Date = DateTime.Now.AddDays(9),
+            ClosingDate = DateTime.UtcNow.AddDays(10),
+            Date = DateTime.UtcNow.AddDays(9),
             FixtureStatusId = (short)Domain.Enums.FixtureStatus.Active
         },
         new()
@@ -168,8 +77,8 @@ public static class ModelBuilderExtensions
             Id = new Guid("8ec1d526-bdc2-44c6-9bed-98bca9c69ddb"),
             Name = "Man United vs Monaco",
             CompetitionId = new Guid("d4a3731b-128b-43b7-8265-313f5d54e9ee"),
-            ClosingDate = DateTime.Now.AddDays(10),
-            Date = DateTime.Now.AddDays(9),
+            ClosingDate = DateTime.UtcNow.AddDays(10),
+            Date = DateTime.UtcNow.AddDays(9),
             FixtureStatusId = (short)Domain.Enums.FixtureStatus.Active
         },
 
@@ -179,8 +88,8 @@ public static class ModelBuilderExtensions
             Id = new Guid("99442eb7-d26e-455d-b461-4fdca23bf4ed"),
             Name = "Chicago Bulls vs Miami Heat",
             CompetitionId = new Guid("d287dd53-5258-4dc0-a0d7-b58f486c914c"),
-            ClosingDate = DateTime.Now.AddDays(10),
-            Date = DateTime.Now.AddDays(9),
+            ClosingDate = DateTime.UtcNow.AddDays(10),
+            Date = DateTime.UtcNow.AddDays(9),
             FixtureStatusId = (short)Domain.Enums.FixtureStatus.Active
         },
         new()
@@ -188,8 +97,8 @@ public static class ModelBuilderExtensions
             Id = new Guid("ec84784b-4de2-4b5b-b37d-c09b6676db3f"),
             Name = "Los Angeles Lakers vs Brooklyn Nets",
             CompetitionId = new Guid("d287dd53-5258-4dc0-a0d7-b58f486c914c"),
-            ClosingDate = DateTime.Now.AddDays(10),
-            Date = DateTime.Now.AddDays(9),
+            ClosingDate = DateTime.UtcNow.AddDays(10),
+            Date = DateTime.UtcNow.AddDays(9),
             FixtureStatusId = (short)Domain.Enums.FixtureStatus.Active
         }
     };
@@ -511,21 +420,24 @@ public static class ModelBuilderExtensions
             Id = new Guid("2a98fa89-af1a-4421-a784-50f68f9285c7"),
             MatchPriceMarketId = new Guid("1a97fa89-af1a-4421-a784-50f68f9284b6"),
             MatchPriceSelectionTypeId = (short)Domain.Enums.MatchPriceSelectionType.HomeTeamWins,
-            Odds = 1.80
+            Odds = 1.80,
+            SettlementId = (short)Domain.Enums.Settlement.NotResultedYet
         },
         new()
         {
             Id = new Guid("2a98fa89-af1a-4421-a784-50f68f9285c8"),
             MatchPriceMarketId = new Guid("1a97fa89-af1a-4421-a784-50f68f9284b6"),
             MatchPriceSelectionTypeId = (short)Domain.Enums.MatchPriceSelectionType.AwayTeamWins,
-            Odds = 2.80
+            Odds = 2.80,
+            SettlementId = (short)Domain.Enums.Settlement.NotResultedYet
         },
         new()
         {
             Id = new Guid("2a98fa89-af1a-4421-a784-50f68f9285c9"),
             MatchPriceMarketId = new Guid("1a97fa89-af1a-4421-a784-50f68f9284b6"),
             MatchPriceSelectionTypeId = (short)Domain.Enums.MatchPriceSelectionType.Draw,
-            Odds = 2.10
+            Odds = 2.10,
+            SettlementId = (short)Domain.Enums.Settlement.NotResultedYet
         },
 
         //Spurs vs Wolves Markets
@@ -534,21 +446,24 @@ public static class ModelBuilderExtensions
             Id = new Guid("58550a4c-adde-452f-998c-fab62fd61675"),
             MatchPriceMarketId = new Guid("58550a4c-adde-452f-998c-fab62fd61676"),
             MatchPriceSelectionTypeId = (short)Domain.Enums.MatchPriceSelectionType.HomeTeamWins,
-            Odds = 1.20
+            Odds = 1.20,
+            SettlementId = (short)Domain.Enums.Settlement.NotResultedYet
         },
         new()
         {
             Id = new Guid("58550a4c-adde-452f-998c-fab62fd61674"),
             MatchPriceMarketId = new Guid("58550a4c-adde-452f-998c-fab62fd61676"),
             MatchPriceSelectionTypeId = (short)Domain.Enums.MatchPriceSelectionType.AwayTeamWins,
-            Odds = 2.95
+            Odds = 2.95,
+            SettlementId = (short)Domain.Enums.Settlement.NotResultedYet
         },
         new()
         {
             Id = new Guid("58550a4c-adde-452f-998c-fab62fd61673"),
             MatchPriceMarketId = new Guid("58550a4c-adde-452f-998c-fab62fd61676"),
             MatchPriceSelectionTypeId = (short)Domain.Enums.MatchPriceSelectionType.Draw,
-            Odds = 1.85
+            Odds = 1.85,
+            SettlementId = (short)Domain.Enums.Settlement.NotResultedYet
         },
 
         //EL
@@ -558,21 +473,24 @@ public static class ModelBuilderExtensions
             Id = new Guid("48550a4c-adde-452f-998c-fab62fd67647"),
             MatchPriceMarketId = new Guid("68550a4c-adde-452f-998c-fab62fd67643"),
             MatchPriceSelectionTypeId = (short)Domain.Enums.MatchPriceSelectionType.HomeTeamWins,
-            Odds = 1.30
+            Odds = 1.30,
+            SettlementId = (short)Domain.Enums.Settlement.NotResultedYet
         },
         new()
         {
             Id = new Guid("58550a4c-adde-452f-998c-fab62fd67648"),
             MatchPriceMarketId = new Guid("68550a4c-adde-452f-998c-fab62fd67643"),
             MatchPriceSelectionTypeId = (short)Domain.Enums.MatchPriceSelectionType.AwayTeamWins,
-            Odds = 2.0
+            Odds = 2.0,
+            SettlementId = (short)Domain.Enums.Settlement.NotResultedYet
         },
         new()
         {
             Id = new Guid("28550a4c-adde-452f-998c-fab62fd67649"),
             MatchPriceMarketId = new Guid("68550a4c-adde-452f-998c-fab62fd67643"),
             MatchPriceSelectionTypeId = (short)Domain.Enums.MatchPriceSelectionType.Draw,
-            Odds = 1.40
+            Odds = 1.40,
+            SettlementId = (short)Domain.Enums.Settlement.NotResultedYet
         },
 
         //Man United vs Monaco
@@ -581,21 +499,24 @@ public static class ModelBuilderExtensions
             Id = new Guid("34550a4c-adde-452f-998c-fab62fd62624"),
             MatchPriceMarketId = new Guid("78550a4c-adde-452f-998c-fab62fd62691"),
             MatchPriceSelectionTypeId = (short)Domain.Enums.MatchPriceSelectionType.HomeTeamWins,
-            Odds = 1.20
+            Odds = 1.20,
+            SettlementId = (short)Domain.Enums.Settlement.NotResultedYet
         },
         new()
         {
             Id = new Guid("15550a4c-adde-452f-998c-fab62fd62658"),
             MatchPriceMarketId = new Guid("78550a4c-adde-452f-998c-fab62fd62691"),
             MatchPriceSelectionTypeId = (short)Domain.Enums.MatchPriceSelectionType.AwayTeamWins,
-            Odds = 2.20
+            Odds = 2.20,
+            SettlementId = (short)Domain.Enums.Settlement.NotResultedYet
         },
         new()
         {
             Id = new Guid("31550a4c-adde-452f-998c-fab62fd62669"),
             MatchPriceMarketId = new Guid("78550a4c-adde-452f-998c-fab62fd62691"),
             MatchPriceSelectionTypeId = (short)Domain.Enums.MatchPriceSelectionType.Draw,
-            Odds = 1.90
+            Odds = 1.90,
+            SettlementId = (short)Domain.Enums.Settlement.NotResultedYet
         },
 
         //NBA
@@ -605,7 +526,8 @@ public static class ModelBuilderExtensions
             Id = new Guid("78342eb7-d26e-455d-b461-4fdca23bf4ea"),
             MatchPriceMarketId = new Guid("88342eb7-d26e-455d-b461-4fdca23bf5ea"),
             MatchPriceSelectionTypeId = (short)Domain.Enums.MatchPriceSelectionType.HomeTeamWins,
-            Odds = 1.10
+            Odds = 1.10,
+            SettlementId = (short)Domain.Enums.Settlement.NotResultedYet
 
         },
         new()
@@ -613,7 +535,8 @@ public static class ModelBuilderExtensions
             Id = new Guid("85342eb7-d26e-455d-b461-4fdca23bf3ea"),
             MatchPriceMarketId = new Guid("88342eb7-d26e-455d-b461-4fdca23bf5ea"),
             MatchPriceSelectionTypeId = (short)Domain.Enums.MatchPriceSelectionType.AwayTeamWins,
-            Odds = 3.10
+            Odds = 3.10,
+            SettlementId = (short)Domain.Enums.Settlement.NotResultedYet
 
         },
         new()
@@ -621,7 +544,8 @@ public static class ModelBuilderExtensions
             Id = new Guid("86342eb7-d26e-455d-b461-4fdca23bf5aa"),
             MatchPriceMarketId = new Guid("88342eb7-d26e-455d-b461-4fdca23bf5ea"),
             MatchPriceSelectionTypeId = (short)Domain.Enums.MatchPriceSelectionType.Draw,
-            Odds = 2.10
+            Odds = 2.10,
+            SettlementId = (short)Domain.Enums.Settlement.NotResultedYet
         },
 
         //Los Angeles Lakers vs Brooklyn Nets
@@ -630,21 +554,24 @@ public static class ModelBuilderExtensions
             Id = new Guid("9286784b-4de2-4b5b-b37d-c09b6676db7b"),
             MatchPriceMarketId = new Guid("1c86784b-4de2-4b5b-b37d-c09b6676db6e"),
             MatchPriceSelectionTypeId = (short)Domain.Enums.MatchPriceSelectionType.HomeTeamWins,
-            Odds = 1.10
+            Odds = 1.10,
+            SettlementId = (short)Domain.Enums.Settlement.NotResultedYet
         },
         new()
         {
             Id = new Guid("2286784b-4de2-4b5b-b37d-c09b6676db6c"),
             MatchPriceMarketId = new Guid("1c86784b-4de2-4b5b-b37d-c09b6676db6e"),
             MatchPriceSelectionTypeId = (short)Domain.Enums.MatchPriceSelectionType.AwayTeamWins,
-            Odds = 2.10
+            Odds = 2.10,
+            SettlementId = (short)Domain.Enums.Settlement.NotResultedYet
         },
         new()
         {
             Id = new Guid("3186784b-4de2-4b5b-b37d-c09b6676db8a"),
             MatchPriceMarketId = new Guid("1c86784b-4de2-4b5b-b37d-c09b6676db6e"),
             MatchPriceSelectionTypeId = (short)Domain.Enums.MatchPriceSelectionType.Draw,
-            Odds = 3.90
+            Odds = 3.90,
+            SettlementId = (short)Domain.Enums.Settlement.NotResultedYet
         },
     };
     private static List<FixtureStatus> _fixtureStatuses = new()
@@ -665,27 +592,27 @@ public static class ModelBuilderExtensions
             Name = "Cancelled"
         }
     };
-    private static List<BetSettlement> _betStatuses= new()
+    private static List<Settlement> _settlements = new()
     {
         new()
         {
-            Id = (short)Domain.Enums.BetSettlement.Active,
-            Name = "Active"
+            Id = (short)Domain.Enums.Settlement.NotResultedYet,
+            Name = "Not Resulted Yet"
         },
         new()
         {
-            Id = (short)Domain.Enums.BetSettlement.Won,
+            Id = (short)Domain.Enums.Settlement.Won,
             Name = "Won"
         },
         new()
         {
-            Id = (short)Domain.Enums.BetSettlement.Lost,
+            Id = (short)Domain.Enums.Settlement.Lost,
             Name = "Lost"
         },
         new()
         {
-            Id = (short)Domain.Enums.BetSettlement.Void,
-            Name = "Lost"
+            Id = (short)Domain.Enums.Settlement.Void,
+            Name = "Void"
         }
     };
 
@@ -703,6 +630,6 @@ public static class ModelBuilderExtensions
         modelBuilder.Entity<MatchPriceSelectionType>().HasData(_matchPriceOddTypes);
         modelBuilder.Entity<MatchPriceSelection>().HasData(_matchPriceOdds);
         modelBuilder.Entity<FixtureStatus>().HasData(_fixtureStatuses);
-        modelBuilder.Entity<BetSettlement>().HasData(_betStatuses);
+        modelBuilder.Entity<Settlement>().HasData(_settlements);
     }
 }

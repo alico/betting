@@ -24,7 +24,10 @@ public class MatchPriceMarketDto : BaseFixtureMarketListItemDto, IMapFrom<Domain
                 Id = y.Id,
                 SelectionType = (MatchPriceSelectionType)y.MatchPriceSelectionTypeId,
                 SelectionTypeName = y.MatchPriceSelectionType.Name,
-                Value = y.Odds
+                Odds = y.Odds,
+                Settlement = (Settlement)y.SettlementId,
+                SettlementName = y.Settlement.Name
+                
             }).ToList()));
     }
 }

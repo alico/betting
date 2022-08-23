@@ -26,6 +26,12 @@ public class PlaceBetCommandHandler : IRequestHandler<PlaceBetCommand, Guid>
         if (!market.MatchPriceSelections.Any(x => x.Id == request.SelectionId))
             throw new CustomException($"Selection {request.SelectionId} has not been found.");
 
+        if (market.FixtureMarket.Fixture.FixtureStatusId != (short)Domain.Enums.FixtureStatus.Active)
+            throw new CustomException($"Fixture {request.FixtureId} is closed for betting.");
+
+        if (market.FixtureMarket.Fixture.ClosingDate < DateTime.UtcNow)
+            throw new CustomException($"Fixture {request.FixtureId} is closed for betting.");
+
         var bet = new Domain.Models.Bet()
         {
             UserId = request.UserId,
@@ -34,7 +40,6 @@ public class PlaceBetCommandHandler : IRequestHandler<PlaceBetCommand, Guid>
             SelectionId = request.SelectionId,
             Amount = request.Amount,
             MarketTypeId = (short)request.MarketType,
-            BetSettlementId = (short)Domain.Enums.BetSettlement.Active,
         };
 
         _context.Bets.Add(bet);

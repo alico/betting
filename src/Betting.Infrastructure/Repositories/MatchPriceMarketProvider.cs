@@ -18,6 +18,8 @@ public class MatchPriceMarketProvider : IProvideMatchPriceMarket
                                 .ThenInclude(x => x.MarketType)
                                 .Include(x => x.MatchPriceSelections)
                                 .ThenInclude(x => x.MatchPriceSelectionType)
+                                .Include(x => x.MatchPriceSelections)
+                                .ThenInclude(x => x.Settlement)
                                 .Where(x => fixtureMarketIds.Contains(x.FixtureMarketId))
                                 .ToListAsync(cancellationToken);
     }
@@ -27,6 +29,7 @@ public class MatchPriceMarketProvider : IProvideMatchPriceMarket
         return await _dbContext.MatchPriceMarket
                                 .Include(x => x.FixtureMarket)
                                 .ThenInclude(x => x.MarketType)
+                                .Include(x=>x.FixtureMarket.Fixture)
                                 .Include(x => x.MatchPriceSelections)
                                 .ThenInclude(x => x.MatchPriceSelectionType)
                                 .Where(x => x.Id == matchPriceMarketId)

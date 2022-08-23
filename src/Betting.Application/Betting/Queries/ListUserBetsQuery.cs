@@ -1,7 +1,7 @@
 ﻿using MediatR;
 
 namespace Betting.Application.Betting.Queries;
-public class ListBettingsQuery : IRequest<IEnumerable<BettingListItemDto>>
+public class ListUserBetsQuery : IRequest<IEnumerable<BetListItemDto>>
 {
     public Guid UserId { get; set; }
 

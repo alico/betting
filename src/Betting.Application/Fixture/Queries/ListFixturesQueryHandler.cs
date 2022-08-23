@@ -34,6 +34,7 @@ public class ListFixturesQueryHandler : IRequestHandler<ListFixturesQuery, IEnum
         //Get Markets with selections
         var marketsWithSelections = await _fixtureMarketService.GetFixtureMarkets(markets, cancellationToken);
 
+        //TODO: Add AutoMapper
         return fixtures.Select(x => new FixtureListItemDto()
         {
             FixtureId = x.Id,

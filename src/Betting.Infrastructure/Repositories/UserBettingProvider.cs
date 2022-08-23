@@ -17,8 +17,10 @@ namespace Betting.Infrastructure.Repositories
         {
             //TODO: Create a aggregation model and fill it with only what you need. 
             return await _context.Bets
-                                 .Include(x=>x.BetSettlement)
                                  .Include(x=>x.Fixture)
+                                 .Include(x=>x.Fixture.Competition)
+                                 .Include(x => x.Fixture.Competition.Sport)
+                                 .Include(x => x.Fixture)
                                  .ThenInclude(x => x.FixtureStatus)
                                  .Include(x => x.Fixture.FixtureMarkets)
                                  .Include(x => x.Fixture.Teams)

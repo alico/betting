@@ -22,9 +22,9 @@ namespace Betting.API.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ErrorResponseWrapper<ErrorResponse>), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(IEnumerable<BettingListItemDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<BetListItemDto>), StatusCodes.Status200OK)]
         [ResponseCache(VaryByQueryKeys = new[] { "*" }, Duration = 60)]
-        public async Task<ActionResult<IEnumerable<BettingListItemDto>>> Get(CancellationToken cancellationToken, [FromQuery] ListBettingsQuery request)
+        public async Task<ActionResult<IEnumerable<BetListItemDto>>> Get(CancellationToken cancellationToken, [FromQuery] ListUserBetsQuery request)
         {
             var response = await _mediator.Send(request, cancellationToken);
 

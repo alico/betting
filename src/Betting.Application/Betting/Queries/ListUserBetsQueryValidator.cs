@@ -2,9 +2,9 @@
 
 namespace Betting.Application.Betting.Queries;
 
-public class ListBettingsQueryValidator : AbstractValidator<ListBettingsQuery>
+public class ListUserBetsQueryValidator : AbstractValidator<ListUserBetsQuery>
 {
-    public ListBettingsQueryValidator()
+    public ListUserBetsQueryValidator()
     {
         RuleFor(v => v.PageNumber)
             .GreaterThan(0).WithMessage("must be greater than 0")

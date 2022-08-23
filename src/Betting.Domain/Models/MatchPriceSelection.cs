@@ -7,6 +7,10 @@ public class MatchPriceSelection : BaseEntity<Guid>
 
     public double Odds { get; set; }
 
+    public short SettlementId { get; set; }
+
+    public Settlement Settlement { get; set; }
+
     public MatchPriceMarket Market { get; set; }
 
     public MatchPriceSelectionType MatchPriceSelectionType { get; set; }
