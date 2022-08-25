@@ -15,6 +15,7 @@ namespace Betting.Infrastructure.Repositories
 
         public async Task<List<Fixture>> GetFixtures(Expression<Func<Fixture, bool>> expression, int pageNUmber, int itemCount, CancellationToken cancellationToken)
         {
+            //TODO: Get only what you need rather than everything.
             return await _context.Fixtures
                                    .Include(x => x.FixtureStatus)
                                    .Include(x => x.FixtureMarkets)

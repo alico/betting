@@ -6,7 +6,7 @@ public abstract class BaseEntity<T> : BaseEntity where T : struct
 
 public abstract class BaseEntity
 {
-    public virtual DateTime? LastModifyDate { get; set; }
+    public virtual DateTime? LastModifyDate { get; set; } = DateTime.UtcNow;
 
-    public virtual DateTime CreationDate { get; set; }
+    public virtual DateTime CreationDate { get; set; } = DateTime.UtcNow;
 }

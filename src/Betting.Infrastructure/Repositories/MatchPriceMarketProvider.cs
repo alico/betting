@@ -13,6 +13,7 @@ public class MatchPriceMarketProvider : IProvideMatchPriceMarket
 
     public async Task<List<MatchPriceMarket>> Get(List<Guid> fixtureMarketIds, CancellationToken cancellationToken)
     {
+        //TODO: Get only what you need rather than everything.
         return await _dbContext.MatchPriceMarket
                                 .Include(x => x.FixtureMarket)
                                 .ThenInclude(x => x.MarketType)
@@ -26,6 +27,7 @@ public class MatchPriceMarketProvider : IProvideMatchPriceMarket
 
     public async Task<MatchPriceMarket> Get(Guid matchPriceMarketId, CancellationToken cancellationToken)
     {
+        //TODO: Get only what you need rather than everything.
         return await _dbContext.MatchPriceMarket
                                 .Include(x => x.FixtureMarket)
                                 .ThenInclude(x => x.MarketType)

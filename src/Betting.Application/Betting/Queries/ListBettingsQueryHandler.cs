@@ -36,7 +36,7 @@ public class ListBettingsQueryHandler : IRequestHandler<ListUserBetsQuery, IEnum
         var markets = await _fixtureMarketService.GetFixtureMarkets(fixtureMarketAggregate, cancellationToken);
 
         //TODO: Move this logic to a service
-        //TODO: Adding a factory pattern would be great here to create other markets providers when we have multiple markets in future.
+        //TODO: Adding a factory pattern would be great here to create other markets providers when we have multiple markets in the future.
         foreach (var bet in bets)
         {
             var market = markets
@@ -49,7 +49,7 @@ public class ListBettingsQueryHandler : IRequestHandler<ListUserBetsQuery, IEnum
             {
                 var selection = ((MatchPriceMarketDto)market).Selections.Where(x => x.Id == bet.SelectionId).FirstOrDefault();
 
-                //TODO: Builder pattern would be useful here.
+                //TODO: Builder pattern and AutoMapper would be useful here to construct the object.
                 var item = new BetListItemDto()
                 {
                     Id = bet.Id,
