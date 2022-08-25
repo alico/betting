@@ -80,3 +80,13 @@ http://localhost:8090/swagger/index.html
 9-) Elasticsearch or MongoDb could be a good option for searching/listing.
 
 10-) More validation rules could be added to bet placing logic. 
+
+## How to Test? 
+
+### Via Postman
+
+A postman collection is added to the repository (BettingAPI.postman_collection.json)
+
+### Via Swagger
+
+Swagger's interface could be used for send the requests. 
