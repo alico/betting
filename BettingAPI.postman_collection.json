@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "51ec5960-5e89-477c-a3ba-6697e467410c",
+		"name": "BettingAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9421807"
+	},
+	"item": [
+		{
+			"name": "Fixture",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/Fixture?SportId=214287B9-3A6A-409C-B7F5-2E38AAE24E7D",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"Fixture"
+							],
+							"query": [
+								{
+									"key": "SportId",
+									"value": "214287B9-3A6A-409C-B7F5-2E38AAE24E7D"
+								},
+								{
+									"key": "CompetitionId",
+									"value": "CB44773A-8596-4D2C-B4C2-E7894D3F6427",
+									"disabled": true
+								},
+								{
+									"key": "FixtureId",
+									"value": "FA97FA89-AF1A-4421-A784-50F68F9284D4",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resolve",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/Fixture/resolve?FixtureId=FA97FA89-AF1A-4421-A784-50F68F9284D4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"Fixture",
+								"resolve"
+							],
+							"query": [
+								{
+									"key": "FixtureId",
+									"value": "FA97FA89-AF1A-4421-A784-50F68F9284D4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Betting",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/Betting?UserId=D06EAF57-6F76-4917-B14F-4FE490F94F4F&PageNumber=1&ItemCount=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"Betting"
+							],
+							"query": [
+								{
+									"key": "UserId",
+									"value": "D06EAF57-6F76-4917-B14F-4FE490F94F4F"
+								},
+								{
+									"key": "PageNumber",
+									"value": "1"
+								},
+								{
+									"key": "ItemCount",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"D06EAF57-6F76-4917-B14F-4FE490F94F4F\",\r\n  \"fixtureId\": \"FA97FA89-AF1A-4421-A784-50F68F9284D4\",\r\n  \"marketId\": \"1A97FA89-AF1A-4421-A784-50F68F9284B6\",\r\n  \"selectionId\": \"2A98FA89-AF1A-4421-A784-50F68F9285C7\",\r\n  \"marketType\": 1,\r\n  \"amount\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/Betting",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"Betting"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
